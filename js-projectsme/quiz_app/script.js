@@ -120,12 +120,3 @@ function showScore() {
 
 // Start the quiz
 startQuiz();
-function honey(params) {
-  
-}
-function funny(params) {
-  
-}
-function chunki(params) {
-  
-}
