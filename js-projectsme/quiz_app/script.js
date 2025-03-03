@@ -101,26 +101,3 @@ function selectAnswer(e) {
   nextButton.style.display = "block"; // Show Next button
 }
 
-nextButton.addEventListener("click", () => {
-  currentQuestionIndex++;
-  if (currentQuestionIndex < questions.length) {
-    showQuestions();
-  } else {
-    showScore();
-  }
-});
-
-function showScore() {
-  resetState();
-  questionElement.innerHTML = `Quiz Completed! 🎉 Your Score: ${Score} / ${questions.length}`;
-  nextButton.innerHTML = "Restart Quiz";
-  nextButton.style.display = "block";
-  nextButton.addEventListener("click", startQuiz);
-}
-
-// Start the quiz
-startQuiz();
-function hagi(params) {
-  
-}
-sucki 
