@@ -123,3 +123,6 @@ startQuiz();
 function honey(params) {
   
 }
+function funny(params) {
+  
+}
