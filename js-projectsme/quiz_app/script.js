@@ -123,3 +123,4 @@ startQuiz();
 function hagi(params) {
   
 }
+sucki 
