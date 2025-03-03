@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Weather App</title>
+  </head>
+  <body
+    class="font-sans bg-[#67a0e1bd] flex justify-center items-center min-h-screen text-lg font-bold"
+  >
+    <div class="card bg-blue-400 rounded-xl p-10 max-w-[500px] w-full m-[20px]">
+      <div class="search w-full flex items-center justify-between">
+        <input
+          class="focus:ring outline-0 py-[10px] px-[5px] h-auto rounded-[30px] mr-5 flex-1 text-lg text-center focus:text-gray-400 text-gray-400"
+          type="text"
+          placeholder="Enter City Name"
+        />
+        <div class="hidden error text-gray-600 text-center mt-2 text-sm mr-8">
+          <p>Invalid city name</p>
+        </div>
+
+        <button
+          class="bg-slate-200 w-[50px] h-[45px] border-0 outline-0 rounded-[50%] flex items-center justify-center cursor-pointer"
+        >
+          <img class="w-[10px] h-auto" src="./images/search.png" />
+        </button>
+      </div>
+
+      <div class="weather hidden flex-col items-center justify-center mt-8">
+        <img
+          class="weather-icon w-[170px] mt-[30px]"
+          src="./images/rain.png"
+          alt=""
+        />
+        <div class="text-center mt-4 text-white">
+          <h1 class="temp text-4xl font-bold">22°C</h1>
+          <h2 class="city text-2xl">New York</h2>
+        </div>
+        <div class="details flex items-center justify-between w-full mt-6">
+          <div class="fstcol flex items-center gap-2">
+            <img class="w-[40px]" src="./images/humidity.png" alt="Humidity" />
+            <div class="text-white">
+              <p class="humidity text-xl font-bold">50%</p>
+              <p class="text-sm">Humidity</p>
+            </div>
+          </div>
+
+          <div class="fstcol flex items-center gap-2">
+            <img class="w-[40px]" src="./images/wind.png" alt="Wind Speed" />
+            <div class="text-white">
+              <p class="wind text-xl font-bold">15 km/h</p>
+              <p class="text-sm">Wind Speed</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    const apikey = "6299e3531999beafe59204618a137368";
+    const apiurl =
+      "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
+    const searchbox = document.querySelector(".search input");
+    const searchbtn = document.querySelector(".search button ");
+    const weathericon = document.querySelector(".weather-icon");
+    async function checkWeather(city) {
+      const response = await fetch(apiurl + city + `&appid=${apikey}`);
+      if (response.status == 404) {
+        document.querySelector(".error").classList.remove("hidden");
+
+        document.querySelector(".weather").classList.add("hidden");
+      } else {
+        document.querySelector(".error").classList.add("hidden");
+      }
+      let data = await response.json();
+      document.querySelector(".city").innerHTML = data.name;
+      document.querySelector(".temp").innerHTML =
+        Math.round(data.main.temp) + "°C";
+      document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
+      document.querySelector(".wind").innerHTML = data.wind.speed + "km/h";
+
+      if (data.weather[0].main == "Clouds") {
+        weathericon.src = "./images/clouds.png";
+      } else if (data.weather[0].main == "Clear") {
+        weathericon.src = "./images/clear.png";
+      } else if (data.weather[0].main == "Rain") {
+        weathericon.src = "./images/rain.png";
+      } else if (data.weather[0].main == "Drizzle") {
+        weathericon.src = "./images/drizzle.png";
+      } else if (data.weather[0].main == "Mist") {
+        weathericon.src = "./images/mist.png";
+      }
+      document.querySelector(".weather").classList.remove("hidden");
+      document.querySelector(".weather").classList.add("flex");
+    }
+
+    searchbtn.addEventListener("click", () => {
+      checkWeather(searchbox.value);
+    });
+  </script>
+</html>

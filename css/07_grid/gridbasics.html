@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid Introduction</title>
+    <style>
+      .grid-container {
+        display: grid;
+        /* grid-template-columns: 1fr 1fr 1fr; */
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 100px 200px 100px;
+        /* grid-template-rows: repeat(1,100px 200px); */
+        gap: 3px;
+      }
+
+      .items {
+        background-color: rgb(61, 61, 192);
+        color: aliceblue;
+        border: 1px solid black;
+      }
+      .item1 {
+        grid-column: 1/3;
+        grid-row: 1/2;
+      }
+      .item2 {
+        grid-column: 3/4;
+        grid-row: 1/3;
+      }
+      .item6 {
+        grid-column: 2/4;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Learning Grid</h1>
+    <div class="grid-container">
+      <div class="items item1">1</div>
+      <div class="items item2">2</div>
+      <div class="items">3</div>
+      <div class="items">4</div>
+      <div class="items">5</div>
+      <div class="items item6">6</div>
+    </div>
+  </body>
+</html>

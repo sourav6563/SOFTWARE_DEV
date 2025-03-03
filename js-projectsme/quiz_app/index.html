@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <style>
+    .correct {
+  background-color: #28a745; /* Green for correct answer */
+  color: rgb(29, 94, 124);
+}
+
+.incorrect {
+  background-color: #dc3545; /* Red for incorrect answer */
+  color: rgb(112, 19, 19);
+}
+
+    .btn {
+      padding: 0.5rem 1rem; /* px-4 py-2 */
+      margin-left: 0.5rem; /* ml-2 */
+      background-color: white; /* bg-white */
+      color: #1f2937; /* text-gray-800 */
+      border: 1px solid #d1d5db; /* border-1 (default gray-300) */
+      font-weight: 600; /* font-semibold */
+      border-radius: 0.375rem; /* rounded-md */
+      text-align: left; /* text-left */
+      width: 100%; /* w-full */
+      margin-bottom: 0.75rem; /* mb-3 */
+      transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    }
+
+    .btn:hover:not(:disabled) {
+      background-color: #374151; /* hover:bg-gray-700 */
+      color: #fff; /* hover:text-[#fff] */
+    }
+    .btn:disabled {
+      cursor: no-drop;
+    }
+  </style>
+  <body class="bg-[#001e4d]">
+    <div
+      class="app bg-[#fff] w-[90%] max-w-[600px] mt-[100px] mx-auto mb-0 rounded-md p-8"
+    >
+      <h1 class="text-2xl text-[#001e4d] font-bold border-b border-[#333] pb-6">
+        Simple Quiz
+      </h1>
+      <div class="quiz py-[30px] px-0">
+        <h2 id="questions" class="text-[#001e4d] text-xl font-bold mb-5">
+          Questions goes here
+        </h2>
+
+        <div id="answer-buttons" class="">
+          <button class="btn">Answer 1</button>
+          <button class="btn">Answer 2</button>
+          <button class="btn">Answer 3</button>
+          <button class="btn">Answer 4</button>
+
+          <button
+            id="next-btn"
+            class="text-center bg-blue-600 text-white w-[150px] font-medium p-2 rounded-md mx-auto mt-3 cursor-pointer"
+          >
+            Next
+          </button>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

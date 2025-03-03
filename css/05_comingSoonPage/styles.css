@@ -1,0 +1,61 @@
+@import url("https://fonts.googleapis.com/css2?family=Smooch+Sans:wght@100..900&display=swap"); 
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+   font-family: "Smooch Sans", serif;
+  height: 100%;
+}
+.container {
+  background: linear-gradient(136deg, #8a2be2, #4169e1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.content {
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 2rem;
+  border-radius: 5px;
+  max-width: 300px;
+}
+.logo {
+  width: 50px;
+  /* height:  75px; */
+}
+h1 {
+  color: #333;
+  margin-bottom: 30px;
+}
+p {
+  color: #666;
+  margin-bottom: 30px;
+}
+form {
+  display: flex;
+  flex-direction: column;
+}
+input[type="email"] {
+  padding: 7px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  margin-bottom: 15px;
+}
+button {
+  padding: 9px;
+  background-color: #8a2be2;
+  color: white;
+  border: none;
+  width: 90%;
+  margin-left: 18px;
+
+  border-radius: 3px;
+
+  cursor: pointer;
+  transition: background-color 0.3 ease-in-out;
+}
+button:hover {
+  background-color: #090210;
+}
