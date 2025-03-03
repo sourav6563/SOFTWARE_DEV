@@ -120,3 +120,6 @@ function showScore() {
 
 // Start the quiz
 startQuiz();
+function hagi(params) {
+  
+}
